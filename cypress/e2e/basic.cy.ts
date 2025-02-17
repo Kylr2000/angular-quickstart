@@ -5,7 +5,7 @@ describe('empty spec', () => {
 
   it('displays the resources text', () => {
     cy.get('h2')
-    .contains('This is a bare-bones Angular project that has everything you need to quickly deploy it to Netlify');
+    .contains("Here's who I am and what I do");
   })
   it('renders the image', () => {
     cy.get('img')
