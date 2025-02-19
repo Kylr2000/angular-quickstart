@@ -8,10 +8,11 @@ const routes: Routes = [
   { path: '', component: AppComponent },  // Default page
   { path: 'resume', component: ResumeComponent },
   { path: 'project', component: ProjectsComponent },
+  { path: '**', redirectTo: '' }  // Handle 404s, redirect to home
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],  // No hash-based routing
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
