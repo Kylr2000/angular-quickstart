@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ResumeComponent } from './resume/resume.component';
 import { ProjectsComponent } from './project/projects.component';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },  // Default page
-  { path: 'resume', component: ResumeComponent },
-  { path: 'project', component: ProjectsComponent },
-  { path: '**', redirectTo: '' }  // Handle 404s, redirect to home
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirect default path
+  { path: 'home', loadComponent: () => import('./app.component').then(m => m.AppComponent) },
+  { path: 'resume', loadComponent: () => import('./resume/resume.component').then(m => m.ResumeComponent) },
+  { path: 'project', loadComponent: () => import('./project/projects.component').then(m => m.ProjectsComponent) },
+  { path: '**', redirectTo: 'home' } // Wildcard route for 404s
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],  // No hash-based routing
+  imports: [RouterModule.forRoot(routes, { useHash: true })], // Hash-based routing
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
