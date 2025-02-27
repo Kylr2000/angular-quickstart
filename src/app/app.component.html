@@ -39,55 +39,60 @@
     </footer>
   </div>
 
-  <style>
-    #content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      gap: 50px;
-    }
+<style>
+  #content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Start at the top, allow footer to push down */
+    min-height: 100vh;
+    gap: 50px;
+    padding: 20px;
+  }
 
-    .header h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
 
-    .logo img {
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
+  .logo img {
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
 
-    .bttns {
-      display: flex;
-      gap: 20px;
-    }
+  .bttns {
+    display: flex;
+    gap: 20px;
+  }
 
-    .footer {
-      margin-top: 20px;
-      background-color: #40e0d0;
-      text-align: justify;
-    }
-    
-    .social-icons {
-      gap: 50px;
-    }
-
-    .icon {
-      width: auto;
-      height: auto;
-    }
-
-    /* Mobile responsiveness */
-  @media (max-width: 768px) {
   .footer {
-    padding: 10px;
+    background-color: #21A69A;
+    padding: 20px 0; /* Adjust padding as needed */
+    width: 100%;
   }
 
-  .social-icons a {
-    font-size: 1.5rem;
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
   }
-  </style>
+
+  .icon {
+    width: auto;
+    height: auto;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 10px;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
 </body>
 </html>
