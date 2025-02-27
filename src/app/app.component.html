@@ -22,7 +22,11 @@
     <router-outlet></router-outlet>
 
     <footer class="footer">
+      <div class="copyright">
+        © 2025 by Kyle Jaimungal 
+      </div>
       <div class="social-icons">
+        <h3>These are my socials:</h3>
         <a href="https://github.com/Kylr2000/" target="_blank" aria-label="GitHub">
           <img src="assets/github.png" alt="GitHub" class="icon">
         </a>
@@ -67,15 +71,19 @@
       padding: 20px;
     }
 
+    .copyright {
+      display: left;
+      justfy-content: left;
+
     .social-icons {
-      display: flex;
-      justify-content: center;
+      display: right;
+      justify-content: right;
       gap: 50px;
     }
 
     .icon {
       width: auto;
-      height: auto;
+      height: 80px;
     }
 
     /* Mobile responsiveness */
