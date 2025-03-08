@@ -1,22 +1,14 @@
-<div class="carousel-container">
+<div>
   <h1>My Projects</h1>
 
-  <div class="carousel">
-    <button class="nav-btn left" (click)="prevSlide()">&#10094;</button>
+  <p>Testing if this works...</p>
 
-    <div class="project-slide" *ngFor="let project of projects; let i = index" [class.active]="i === currentSlide">
+  <ul>
+    <li *ngFor="let project of projects">
       <h2>{{ project.title }}</h2>
       <p>{{ project.description }}</p>
       <p><strong>Technologies:</strong> {{ project.technologies }}</p>
-      <a *ngIf="project.link" [href]="project.link" target="_blank" class="project-link">
-        View Project
-      </a>
-    </div>
-
-    <button class="nav-btn right" (click)="nextSlide()">&#10095;</button>
-  </div>
-
-  <div class="dots">
-    <span *ngFor="let _ of projects; let i = index" (click)="goToSlide(i)" [class.active]="i === currentSlide"></span>
-  </div>
+      <a *ngIf="project.link" [href]="project.link" target="_blank">View Project</a>
+    </li>
+  </ul>
 </div>
