@@ -1,108 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-</head>
-<body>
-  <div id="content">
-    <div class="header">
-      <h1>Hello There</h1>
-      <div class="logo">
-        <img src="assets/Photo_2024-11-24_154156.jpg" style="width: 140px; height: auto;">
-      </div>
-      <h2>Here's who I am and what I do</h2>
-      <div class="bttns">
-        <a routerLink="/resume" class="bttn primary">Resume</a>
-        <a routerLink="/project" class="bttn secondary">View Projects</a>
-      </div>
+<div class="header">
+  <h1>Hello There</h1>
+
+  <div class="intro-container">
+    <div class="logo">
+      <img src="assets/Photo_2024-11-24_154156.jpg" alt="Profile Picture" class="profile-pic">
     </div>
-
-    <router-outlet></router-outlet>
-
-    <footer class="footer">
-      <div class="copyright">
-        © 2025 by Kyle Jaimungal 
-      </div>
-      <div class="social-icons">
-        <a href="https://github.com/Kylr2000/" target="_blank" aria-label="GitHub">
-          <img src="assets/github.png" alt="GitHub" class="icon">
-        </a>
-        <a href="mailto:kylejaimungal@gmail.com" aria-label="Email">
-          <img src="assets/gmail.png" alt="Email" class="icon">
-        </a>
-        <a href="https://www.linkedin.com/in/kyle-jaimungal-5b787b260/" target="_blank" aria-label="LinkedIn">
-          <img src="assets/linkedin.png" alt="LinkedIn" class="icon">
-        </a>
-      </div>
-    </footer>
+    <h2 class="intro-text">Here's who I am and what I do</h2>
   </div>
 
+  <div class="bttns">
+    <a routerLink="/resume" class="bttn primary">Resume</a>
+    <a routerLink="/project" class="bttn secondary">View Projects</a>
+  </div>
+</div>
+
 <style>
-  /* Overall content layout */
-  #content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Aligns content to the top */
-    min-height: 100vh; /* Ensures content takes at least full viewport height */
-    gap: 50px;
+  .header {
+    text-align: center;
   }
 
-  /* Header style */
-  .header h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  .intro-container {
+    display: flex;
+    align-items: center; /* Vertically aligns the image and text */
+    justify-content: center;
+    gap: 20px; /* Space between image and text */
   }
 
   .logo img {
+    width: 140px;
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    font-size: 2rem;
+    margin: 0; /* Remove default margin */
   }
 
   .bttns {
     display: flex;
     gap: 20px;
-  }
-
-  /* Footer style */
-  .footer {
-    margin-top: auto; /* Pushes footer to the bottom */
-    background-color: #21A69A;
-    padding: 20px 0; /* Default padding */
-    width: 100%;
-  }
-
-  .social-icons {
-    display: flex;
     justify-content: center;
-    gap: 50px;
+    margin-top: 20px;
   }
 
-  .icon {
-    width: auto;
-    height: auto;
-  }
-
-  /* Mobile responsiveness */
   @media (max-width: 768px) {
-    #content {
-      padding: 20px 0 0; /* Adjust padding for mobile */
-      justify-content: center; /* Ensure center alignment for mobile */
+    .intro-container {
+      flex-direction: column; /* Stack image and text for mobile */
+      gap: 10px;
     }
 
-    .footer {
-      padding: 10px 0; /* Reduced padding for mobile */
-    }
-
-    .social-icons a {
+    .intro-text {
       font-size: 1.5rem;
     }
   }
 </style>
-
-
-
-</body>
-</html>
