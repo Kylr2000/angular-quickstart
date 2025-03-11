@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnDestroy {
   projects = [
     {
       title: 'Cellular and Radio Coverage Dashboard',
@@ -28,16 +28,39 @@ export class ProjectsComponent {
   ];
 
   currentSlide = 0;
+  autoScrollInterval: any;
+
+  ngOnInit() {
+    this.startAutoScroll();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.autoScrollInterval); // Clean up interval when component is destroyed
+  }
 
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.projects.length;
+    this.resetAutoScroll();
   }
 
   prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.projects.length) % this.projects.length;
+    this.resetAutoScroll();
   }
 
   goToSlide(index: number) {
     this.currentSlide = index;
+    this.resetAutoScroll();
+  }
+
+  startAutoScroll() {
+    this.autoScrollInterval = setInterval(() => {
+      this.nextSlide();
+    }, 3000); // Auto-scroll every 3 seconds
+  }
+
+  resetAutoScroll() {
+    clearInterval(this.autoScrollInterval);
+    this.startAutoScroll();
   }
 }
