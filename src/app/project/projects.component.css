@@ -22,13 +22,6 @@ h1 {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 300%;
-  animation: autoScroll 9s infinite linear;
-}
-
-@keyframes autoScroll {
-  0%, 33% { transform: translateX(0); }
-  34%, 66% { transform: translateX(-100%); }
-  67%, 100% { transform: translateX(-200%); }
 }
 
 .project-slide {
@@ -73,6 +66,7 @@ p {
   padding: 1rem;
   cursor: pointer;
   font-size: 1.5rem;
+  z-index: 10;
 }
 
 .nav-btn.left {
