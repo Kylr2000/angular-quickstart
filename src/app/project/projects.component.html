@@ -22,11 +22,13 @@
   .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 300%;
   }
 
   .project-slide {
-    min-width: 100%;
+    flex: 1;
     padding: 2rem;
+    min-width: 100%;
     background: #f9f9f9;
     box-sizing: border-box;
   }
@@ -100,12 +102,23 @@
   <div class="carousel">
     <button class="nav-btn left" (click)="prevSlide()">&#10094;</button>
 
-    <div class="carousel-inner" [style.transform]="'translateX(' + (-currentSlide * 100) + '%)'">
-      <div class="project-slide" *ngFor="let project of projects">
+    <div
+      class="carousel-inner"
+      [style.transform]="'translateX(' + (-currentSlide * 100) + '%)'"
+    >
+      <div
+        class="project-slide"
+        *ngFor="let project of projects"
+      >
         <h2>{{ project.title }}</h2>
         <p>{{ project.description }}</p>
         <p><strong>Technologies:</strong> {{ project.technologies }}</p>
-        <a *ngIf="project.link" [href]="project.link" target="_blank" class="project-link">
+        <a
+          *ngIf="project.link"
+          [href]="project.link"
+          target="_blank"
+          class="project-link"
+        >
           View Project
         </a>
       </div>
@@ -115,52 +128,10 @@
   </div>
 
   <div class="dots">
-    <span *ngFor="let project of projects; let i = index" (click)="goToSlide(i)" [class.active]="i === currentSlide"></span>
+    <span
+      *ngFor="let project of projects; let i = index"
+      (click)="goToSlide(i)"
+      [class.active]="i === currentSlide"
+    ></span>
   </div>
 </div>
-
-<script>
-  let currentSlide = 0;
-  const projects = [
-    {
-      title: 'Cellular and Radio Coverage Dashboard',
-      description: 'A web app to visualize cellular and radio coverage at sea for Trinidad and Tobago.',
-      technologies: 'React, Django, Leaflet.js',
-      link: 'https://github.com/yourusername/cellular-dashboard'
-    },
-    {
-      title: 'Liquor License Management System',
-      description: 'Developed a system for batch processing and managing liquor licenses.',
-      technologies: 'React, Django, PostgreSQL',
-      link: ''
-    },
-    {
-      title: 'Angular Portfolio Website',
-      description: 'Personal portfolio site built with Angular.',
-      technologies: 'Angular, Netlify',
-      link: 'https://kylejaimungal.netlify.app'
-    }
-  ];
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % projects.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + projects.length) % projects.length;
-    updateCarousel();
-  }
-
-  function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
-  }
-
-  function updateCarousel() {
-    document.querySelector('.carousel-inner').style.transform = `translateX(${-currentSlide * 100}%)`;
-    document.querySelectorAll('.dots span').forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentSlide);
-    });
-  }
-</script>
